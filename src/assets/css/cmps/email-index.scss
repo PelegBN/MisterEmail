@@ -1,0 +1,16 @@
+@import "../basics/colors";
+
+.email-index {
+    background-color: $p1_grey;
+    border-radius: 4px 0 0 0;
+    color: $p1_beige;
+    max-width: 70%;
+    width: 100%;
+
+    .filters{
+        background-color: $p1_brown;
+        border-radius: 4px 0 0 0;
+        color: $p1_grey;
+        padding: 5px 10px;
+    }
+}
