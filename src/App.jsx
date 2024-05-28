@@ -1,67 +1,46 @@
+import { HashRouter as Router, Routes, Route, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import { userService } from './services/user.service.js'
-import { emailService } from './services/email.service.js'
+import { Header } from './cmp/Header.jsx'
 import { Home } from './pages/Home.jsx'
-
-import logoImgUrl from './assets/imgs/logo_altr.png'
+import { EmailIndex } from './pages/EmailIndex.jsx'
+import { Footer } from './cmp/Footer.jsx'
 
 export function App() {
+    const navigate = useNavigate()
     const [user, setUser] = useState(null)
-    const [emails, setEmails] = useState(null)
 
     useEffect(() => {
-        const user = userService.getUser()
-        setUser(user)
-
-        async function fetchEmails() {
-            console.log('use effect in')
-            const emails = await emailService.query()
-            setEmails(emails)
+        const connectedUser = userService.getUser()
+        if (connectedUser) {
+            handleLogin(connectedUser)
+        } else {
+            navigate('/')
         }
+    }, [])
 
-        fetchEmails()
-    }, []);
+    useEffect(() => {
+        if (user) {
+            navigate('/mailbox')
+        } else {
+            navigate('/')
+        }
+    }, [user])
 
-    console.log(emails)
+    function handleLogin(loginUser) {
+        setUser(loginUser)
+    }
 
     return (
-        <Router>
-            <section className='main-app'>
-                <header className="app-header">
-                    <section className="container">
-                        <div className="side-container">
-                            <span><i className="fa-solid fa-bars"></i></span>
-                            <h1 className="logo">MisterEmail</h1>
-                            {/* <img className="logo" src={logoImgUrl} /> */}
-                        </div>
-                        <div className="user-container">
-                            <input type="search" placeholder="Search" />
-                            {/* <div> */}
-                            <h1>
-                                {user ? user.fullname.split(' ')[0] : 'Guest'}
-                                <i className="fa-solid fa-user"></i>
-                            </h1>
-                            {/* </div> */}
-                        </div>
-                    </section>
-                </header>
-
-                <main className="container">
-                    {/* <Home /> */}
-
-                    <Routes>
-                        <Route path="/" element={<Home emails={emails} />} />
-                    </Routes>
-                </main>
-
-                <footer>
-                    <section className="container">
-                        robotRights 2023 &copy;
-                    </section>
-                </footer>
-            </section>
-        </Router>
+        <section className='main-app'>
+            <Header />
+            <main className="container">
+                <Routes>
+                    <Route path="/" element={<Home onLogin={handleLogin} />} />
+                    <Route path="/mailbox" element={<EmailIndex gUser={user}/>} />
+                </Routes>
+            </main>
+            <Footer />
+        </section>
     )
 }
-

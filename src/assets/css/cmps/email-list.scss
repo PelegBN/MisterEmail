@@ -1,0 +1,7 @@
+@import "../basics/global-variables";
+
+.email-list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}

@@ -1,25 +1,26 @@
-@import "../basics/colors";
+@import "../basics/global-variables";
 
-.app-header {
-    background: $p1_beige;
+.top-nav {
+    // background: $p1_beige;
     color: $p1_light_red;
+    font-size: 18px;
 
     section.container {
         display: flex;
         /* align-items: center; */
         /* justify-content: space-between; */
-        padding-left: 10px;
-        padding-right: 10px;
-        padding: 20px;
+        padding: 10px;
 
         .side-container {
             align-items: center;
             display: flex;
-            max-width: 30%;
-            width: 100%;
+            // max-width: 30%;
+            // width: 100%;
 
-            .fa-bars {
+            .side-nav-toggle {
                 cursor: pointer;
+                font-size: 30px;
+                line-height: 0.5;
             }
 
             .logo {
@@ -31,23 +32,23 @@
             align-items: center;
             display: flex;
             flex-grow: 1;
-            justify-content: space-between;
+            justify-content: end;
 
-            input[type=search] {
-                background-color: $p1_beige;
-                border: 1px dashed $p1_grey;
-                border-radius: 4px;
-                color: $p1_grey;
-                padding: 15px;
+            // input[type=search] {
+            //     background-color: $p1_beige;
+            //     border: 1px dashed $p1_grey;
+            //     border-radius: 4px;
+            //     color: $p1_grey;
+            //     padding: 15px;
 
-                &:active, 
-                &:focus-visible {
-                    background-color: $p1_brown;
-                    border: 1px solid $p1_beige;
-                    // border: none;
-                    outline: none;
-                }
-            }
+            //     &:active, 
+            //     &:focus-visible {
+            //         background-color: $p1_brown;
+            //         border: 1px solid $p1_beige;
+            //         // border: none;
+            //         outline: none;
+            //     }
+            // }
 
             h1 {
                 .fa-user {

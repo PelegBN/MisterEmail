@@ -1,5 +1,6 @@
 import { storageService } from './async-storage.service.js'
 import { utilService } from './util.service.js'
+import { emailsDemoData } from './emails-demo-data.js'
 
 export const emailService = {
     query,
@@ -67,7 +68,7 @@ function createEmail(model = '', type = '', batteryStatus = 100) {
 function _createEmails() {
     let emails = utilService.loadFromStorage(STORAGE_KEY)
     if (!emails || !emails.length) {
-        emails = [ demoEmail ];
+        emails = emailsDemoData.getEmails();
         utilService.saveToStorage(STORAGE_KEY, emails)
     }
 }

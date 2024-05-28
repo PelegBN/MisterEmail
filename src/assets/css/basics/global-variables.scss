@@ -1,5 +1,7 @@
+// =================  COLORS ==================== //
 // Palette #1
 $p1_beige: #EAE7DC;
+$p1_lighter_beige: #F5F4EF;
 $p1_brown: #D8C3A5;
 $p1_grey: #8E8D8A;
 $p1_light_red: #E98074;
@@ -18,3 +20,9 @@ $p3_slate: #2E3944;
 $p3_blue: #124E66;
 $p3_light-slate: #748D92;
 $p3_light-grey: #D3D9D4;
+
+
+// =================  MEDIA QUERIES ==================== //
+$small: 667px;
+$medium: 900px;
+$large: 1200px;

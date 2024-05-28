@@ -5,9 +5,13 @@
 @import "basics/animations.css";
 
 /* Pages */
-@import "./pages/home.css";
+@import "./pages/home.scss";
+@import "./pages/email-index.scss";
 
 /* Components */
-@import "./cmps/app-header.scss";
+@import "./cmps/app-footer.scss";
+@import "./cmps/top-nav.scss";
 @import "./cmps/side-nav.scss";
-@import "./cmps/email-index.scss";
+@import "./cmps/email-list.scss";
+@import "./cmps/email-filter.scss";
+@import "./cmps/email-preview.scss";

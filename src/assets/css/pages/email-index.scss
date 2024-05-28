@@ -1,0 +1,14 @@
+@import "../basics/global-variables";
+
+.email-index {
+    background-color: $p1_beige;
+    border-radius: 4px 0 0 0;
+    color: $p1_grey;
+    flex-grow: 1;
+
+    .emails-section {
+        background: repeating-linear-gradient(45deg, rgba(142, 141, 138, 0.1), rgba(142, 141, 138, 0.1) 1px, $p1_beige 3px, $p1_beige 25px);
+        display: flex;
+        height: calc(100% - 50px);
+    }
+}
