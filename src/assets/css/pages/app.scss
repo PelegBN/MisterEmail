@@ -1,0 +1,14 @@
+@import "../basics/global-variables";
+
+.app {
+    background-color: $p1_beige;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    main {
+        display: flex;
+        flex-grow: 1;
+        width: 100%;
+    }
+}

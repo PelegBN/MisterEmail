@@ -11,12 +11,10 @@ export function TopNav({ gUser }) {
                 </div>
                 <div className="user-container">
                     {/* <input type="search" placeholder="Search" /> */}
-                    {/* <div> */}
                     <h1>
                         {gUser ? gUser.fullname.split(' ')[0] : 'Guest'}
                         <i className="fa-solid fa-user"></i>
                     </h1>
-                    {/* </div> */}
                 </div>
             </section>
         </section>

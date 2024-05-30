@@ -20,10 +20,14 @@
 
     .date {
         flex-grow: 1;
-        max-width: 60px;
+        max-width: 70px;
         padding: 0 10px;
-        text-wrap: nowrap;
         text-align: right;
+        text-wrap: nowrap;
+
+        &.full {
+            font-size: 12px;
+        }
     }
 
     .content {

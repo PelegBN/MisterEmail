@@ -7,35 +7,23 @@ export const emailService = {
     save,
     remove,
     getById,
-    createEmail,
+    getFormattedtime
 }
 
 const STORAGE_KEY = 'emailDB'
-
-const demoEmail = {
-    id: 'e101',
-    subject: 'Miss you!',
-    body: 'Would love to catch up sometimes',
-    isRead: false,
-    isStarred: false,
-    sentAt: 1551133930594,
-    removedAt: null, //for later use 
-    from: 'momo@momo.com',
-    to: 'user@appsus.com'
-}
 
 _createEmails()
 
 async function query(filterBy) {
     const emails = await storageService.query(STORAGE_KEY)
-    console.log(emails)
+    // console.log(emails)
     // if (filterBy) {
-        // var { type, maxBatteryStatus, minBatteryStatus, model } = filterBy
-        // maxBatteryStatus = maxBatteryStatus || Infinity
-        // minBatteryStatus = minBatteryStatus || 0
-        // emails = emails.filter(email => email.type.toLowerCase().includes(type.toLowerCase()) && email.model.toLowerCase().includes(model.toLowerCase())
-        //     && (email.batteryStatus < maxBatteryStatus)
-        //     && email.batteryStatus > minBatteryStatus)
+    // var { type, maxBatteryStatus, minBatteryStatus, model } = filterBy
+    // maxBatteryStatus = maxBatteryStatus || Infinity
+    // minBatteryStatus = minBatteryStatus || 0
+    // emails = emails.filter(email => email.type.toLowerCase().includes(type.toLowerCase()) && email.model.toLowerCase().includes(model.toLowerCase())
+    //     && (email.batteryStatus < maxBatteryStatus)
+    //     && email.batteryStatus > minBatteryStatus)
     // }
     return emails
 }
@@ -57,12 +45,76 @@ function save(emailToSave) {
     }
 }
 
-function createEmail(model = '', type = '', batteryStatus = 100) {
-    return {
-        model,
-        batteryStatus,
-        type
+function getFormattedtime(timestamp) {
+    if (_isToday(timestamp)) {
+        return _getToday(timestamp)
+    } else if (_isThisYear(timestamp)) {
+        return _getThisYear(timestamp)
+    } else {
+        return _getFullYear(timestamp)
     }
+}
+
+function setIsRead() {
+
+}
+
+function setIsStarred() {
+
+}
+
+// Private functions
+function _isToday(timestamp) {
+    const date = new Date(timestamp)
+    const now = new Date()
+    return _isThisMonth(timestamp) &&
+        date.getDate() === now.getDate()
+}
+
+function _isYesterday(timestamp) {
+    const date = new Date(timestamp)
+    const now = new Date()
+    return _isThisMonth(timestamp) &&
+        date.getDate() === now.getDate() - 1
+}
+
+function _isThisMonth(timestamp) {
+    const date = new Date(timestamp)
+    const now = new Date()
+    return _isThisYear(timestamp) &&
+        date.getMonth() === now.getMonth()
+}
+
+function _isThisYear(timestamp) {
+    const date = new Date(timestamp)
+    const now = new Date()
+    return date.getFullYear() === now.getFullYear()
+}
+
+function _getToday(timestamp) {
+    const date = new Date(timestamp)
+    return `
+    ${date.getHours()} : ${date.getMinutes()}`
+}
+
+function _getMonthName(timestamp) {
+    const date = new Date(timestamp)
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    return months[date.getMonth()]
+}
+
+function _getThisYear(timestamp) {
+    const date = new Date(timestamp)
+    const month = _getMonthName(timestamp)
+    return `${month} ${date.getDate()}`
+}
+
+function _getFullYear(timestamp) {
+    const date = new Date(timestamp)
+    return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`
+}
+
+function _createEmail() {
 }
 
 function _createEmails() {

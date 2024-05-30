@@ -32,7 +32,7 @@ export function App() {
     }
 
     return (
-        <section className='main-app'>
+        <section className='app'>
             <Header />
             <main className="container">
                 <Routes>

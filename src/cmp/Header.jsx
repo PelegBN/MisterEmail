@@ -1,5 +1,6 @@
 export function Header() {
     return (
-        <header className="app-header"></header>
+        <section className="app-header">
+        </section>
     )
 }

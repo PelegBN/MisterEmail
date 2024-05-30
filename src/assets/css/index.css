@@ -1,15 +1,18 @@
 /*  Basics */
 @import "basics/base.css";
 @import "basics/helpers.css";
+@import "basics/loader.scss";
 @import "basics/layout.css";
 @import "basics/animations.css";
 
 /* Pages */
+@import "./pages/app.scss";
 @import "./pages/home.scss";
 @import "./pages/email-index.scss";
 
 /* Components */
 @import "./cmps/app-footer.scss";
+/* @import "./cmps/app-header.scss"; */
 @import "./cmps/top-nav.scss";
 @import "./cmps/side-nav.scss";
 @import "./cmps/email-list.scss";

@@ -4,16 +4,11 @@ import { EmailList } from "../cmp/EmailList.jsx"
 import { TopNav } from '../cmp/TopNav.jsx'
 import { SideNav } from '../cmp/SideNav.jsx'
 
-export function EmailIndex({ gUser }) {
+export function EmailIndex({gUser}) {
     const [user, setUser] = useState(gUser)
     const [emails, setEmails] = useState(null)
 
     useEffect(() => {
-        async function fetchEmails() {
-            const emails = await emailService.query()
-            setEmails(emails)
-        }
-
         fetchEmails()
     }, []);
 
@@ -21,20 +16,24 @@ export function EmailIndex({ gUser }) {
         setUser(gUser)
     }, [gUser])
 
-    if (!emails) return (
-        <section className="email-index">
-            <TopNav gUser={user} />
-            <div>Loading...</div>
-        </section>
-    )
+    async function fetchEmails() {
+        const emails = await emailService.query()
+        setEmails(emails)
+    }
 
     return (
         <section className="email-index">
             <TopNav gUser={user} />
-            <section className="emails-section">
-                <SideNav emails={emails} />
-                <EmailList emails={emails} />
-            </section>
+            {
+                emails
+                    ?
+                    <section className="emails-section">
+                        <SideNav emails={emails} />
+                        <EmailList emails={emails} />
+                    </section>
+                    :
+                    <div className="loader"></div>
+            }
         </section>
     )
 }

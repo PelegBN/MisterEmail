@@ -1,0 +1,77 @@
+@import "../basics/global-variables";
+
+.app-header {
+    background: $p1_beige;
+    color: $p1_light_red;
+    font-size: 18px;
+
+    section.container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+
+        .side-container {
+            align-items: center;
+            display: flex;
+            max-width: 30%;
+            width: 100%;
+
+            .side-nav-toggle {
+                cursor: pointer;
+                font-size: 30px;
+                line-height: 0.5;
+            }
+
+            .logo {
+                margin: 0 15px;
+            }
+        }
+
+        .user-container {
+            align-items: center;
+            display: flex;
+            flex-grow: 1;
+            justify-content: end;
+
+            // input[type=search] {
+            //     background-color: $p1_beige;
+            //     border: 1px dashed $p1_grey;
+            //     border-radius: 4px;
+            //     color: $p1_grey;
+            //     padding: 15px;
+
+            //     &:active, 
+            //     &:focus-visible {
+            //         background-color: $p1_brown;
+            //         border: 1px solid $p1_beige;
+            //         // border: none;
+            //         outline: none;
+            //     }
+            // }
+
+            h1 {
+                .fa-user {
+                    margin-left: 10px;
+                }
+            }
+        }
+
+        >section {
+            flex-grow: 1;
+        }
+    }
+
+    // h1.logo {
+    //     flex-grow: 1;
+    //     font-weight: 600;
+    // }
+
+    // .back {
+    //     flex-grow: 1;
+    // }
+
+    nav a:not(:last-child) {
+        margin-right: 10px;
+    }
+}
