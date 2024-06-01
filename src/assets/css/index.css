@@ -12,8 +12,8 @@
 
 /* Components */
 @import "./cmps/app-footer.scss";
-/* @import "./cmps/app-header.scss"; */
-@import "./cmps/top-nav.scss";
+@import "./cmps/app-header.scss";
+/* @import "./cmps/top-nav.scss"; */
 @import "./cmps/side-nav.scss";
 @import "./cmps/email-list.scss";
 @import "./cmps/email-filter.scss";

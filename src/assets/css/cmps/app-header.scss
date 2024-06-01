@@ -3,13 +3,17 @@
 .app-header {
     background: $p1_beige;
     color: $p1_light_red;
-    font-size: 18px;
+    font-size: 15px;
 
-    section.container {
+    // section.container {
         display: flex;
         align-items: center;
         justify-content: space-between;
         padding: 10px;
+
+        &.hide {
+            visibility: hidden;
+        }
 
         .side-container {
             align-items: center;
@@ -60,7 +64,7 @@
         >section {
             flex-grow: 1;
         }
-    }
+    // }
 
     // h1.logo {
     //     flex-grow: 1;
