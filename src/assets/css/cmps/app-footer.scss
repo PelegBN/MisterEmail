@@ -5,8 +5,10 @@
     background-color: $p1_beige;
     border-top: 2px solid rgba(142, 141, 138, 0.1);
     color: $p1_grey;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    // display: flex;
+    // justify-content: space-between;
     padding: 15px;
 
     .me-logo {
@@ -16,9 +18,10 @@
     }
 
     section.useless-text {
-        text-transform: uppercase;
         font-size: 14px;
+        justify-self: end;
         letter-spacing: 0.5px;
+        text-transform: uppercase;
 
         .author {
             font-weight: 700;

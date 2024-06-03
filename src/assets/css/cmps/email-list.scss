@@ -1,7 +1,51 @@
 @import "../basics/global-variables";
 
 .email-list {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+    align-content: start;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto);
+
+    .email-list-wrappers {
+        display: grid;
+        grid-template-columns:
+            minmax(10px, 1fr) 1fr minmax(600px, 100%) 1fr minmax(10px, 1fr);
+        grid-template-rows: 1fr;
+
+        .email-filter {
+            grid-column: 3;
+        }
+
+        .bottom-wrapper {
+            grid-column: 3;
+            border-bottom: 10px solid $p1_grey;
+            border-radius: 0 0 4px 4px;
+        }
+    }
+
+    .preview-grid {
+        display: grid;
+        grid-template-columns:
+            minmax(10px, 1fr) 1fr minmax(600px, 100%) 1fr minmax(10px, 1fr);
+
+        &>* {
+            grid-column: 3;
+            overflow: hidden;
+            transition: all 0.125s;
+        }
+
+        &:hover {
+            background-color: $p1_lighter_beige;
+            border-radius: 4px;
+            box-shadow:
+                0px -5px 15px -5px rgba(142, 141, 138, 0.3),
+                0px 15px 15px -5px rgba(142, 141, 138, 0.3),
+                inset 0 -2px 0px 0px rgba(142, 141, 138, 0.3);
+            grid-column: 1 / -1;
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    // }
 }

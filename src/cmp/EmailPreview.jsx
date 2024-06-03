@@ -7,7 +7,7 @@ export function EmailPreview({ email }) {
 
     useEffect(() => {
         setIsFullDate(isFullDateFormat())
-    }, [isFullDate])
+    }, [formattetdDate])
 
 
     function isFullDateFormat() {

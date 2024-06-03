@@ -2,8 +2,8 @@
 
 .email-preview {
     align-items: center;
-    background-color: $p1_lighter_beige;
-    border-bottom: 2px solid rgba(142, 141, 138, 0.3);
+    background-color: rgba($p1_lighter_beige, 0.7);
+    box-shadow: inset 0 -2px 0px 0px rgba(142, 141, 138, 0.3);
     color: $p1_grey;
     cursor: pointer;
     display: flex;
@@ -56,11 +56,6 @@
             width: 100%;
             white-space: nowrap;
         }
-    }
-
-    &:last-child {
-        border-bottom: 10px solid $p1_grey;
-        border-radius: 4px;
     }
 }
 

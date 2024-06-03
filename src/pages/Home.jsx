@@ -9,7 +9,6 @@ export function Home({ headerRef, onLogin }) {
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        console.log(headerRef.current)
         if (headerRef.current) {
             headerRef.current.classList.add('hide');
         }

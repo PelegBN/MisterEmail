@@ -15,8 +15,8 @@ export function SideNav({ emails }) {
         <section className="side-nav">
             <button className="compose-btn">Compose</button>
             <ul className="side-menu">
-                <li><i className="fa-solid fa-envelope"></i> Inbox ({unread})</li>
-                <li><i className="fa-solid fa-star"></i> Starred ({starred})</li>
+                <li><i className="fa-solid fa-envelope"></i> Inbox <span>({unread})</span></li>
+                <li><i className="fa-solid fa-star"></i> Starred <span>({starred})</span></li>
                 <li><i className="fa-solid fa-square-arrow-up-right"></i> Sent</li>
             </ul>
         </section>
