@@ -49,8 +49,8 @@ export function EmailList({ emails }) {
             <section className="email-list-container" ref={emailListRef}>
                 {
                     emails.map(email =>
-                        <section className="preview-grid">
-                            <EmailPreview key={email.id} email={email} />
+                        <section key={email.id} className="preview-grid">
+                            <EmailPreview email={email} />
                         </section>)
                 }
             </section>
